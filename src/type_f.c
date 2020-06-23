@@ -6,7 +6,7 @@
 /*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 11:11:29 by mlink             #+#    #+#             */
-/*   Updated: 2020/02/29 14:32:04 by mlink            ###   ########.fr       */
+/*   Updated: 2020/06/01 13:25:35 by mlink            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,10 @@ static long double	ft_round_x(long double x, t_all *all)
 static char			*ft_after_dot_num(long double x, t_all *all)
 {
 	int		i;
-	double	prec;
 	char	*str;
 	char	*str_plus;
 	int		x_sav;
 
-	prec = 1;
 	i = all->prec;
 	str = ft_strnew(0);
 	str_plus = ft_strnew(1);

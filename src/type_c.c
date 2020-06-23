@@ -6,7 +6,7 @@
 /*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 15:49:49 by mlink             #+#    #+#             */
-/*   Updated: 2020/02/21 12:33:22 by mlink            ###   ########.fr       */
+/*   Updated: 2020/06/02 11:52:19 by mlink            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,15 @@ static int	ft_wight_char(char c, t_all *all)
 		all->count++;
 	}
 	free(str);
-	return (0);
+	return(0);
 }
 
 int			ft_char(va_list args, t_all *all, char c)
 {
 	if (c == 'c')
 		c = (char)va_arg(args, int);
+	else if (c == 'C')
+		return(0);
 	if (all->width > 0)
 		ft_wight_char(c, all);
 	else
@@ -49,5 +51,5 @@ int			ft_char(va_list args, t_all *all, char c)
 		write(all->fd, &c, 1);
 		all->count++;
 	}
-	return (0);
+	return(0);
 }

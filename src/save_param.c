@@ -6,7 +6,7 @@
 /*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 15:41:56 by mlink             #+#    #+#             */
-/*   Updated: 2020/03/03 16:04:14 by mlink            ###   ########.fr       */
+/*   Updated: 2020/06/01 14:10:13 by mlink            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,7 @@ static int	ft_save_prec(const char *form, size_t i, t_all *all, va_list args)
 }
 
 int			ft_save(const char *form, size_t i, t_all *all, va_list args)
-{
-	i++;
+{	
 	while (ft_is_flag(form[i]) || ft_is_mod(form[i]) ||
 			ft_is_prec(form[i]) || ft_is_width(form[i]))
 	{

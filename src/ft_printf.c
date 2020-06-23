@@ -6,7 +6,7 @@
 /*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 17:11:14 by mlink             #+#    #+#             */
-/*   Updated: 2020/02/29 14:59:37 by mlink            ###   ########.fr       */
+/*   Updated: 2020/06/02 11:46:45 by mlink            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	ft_clean(t_all *all)
 	all->x = 0;
 }
 
-static int	print_args(va_list args, t_all *all, char c)
+static int	print_args(va_list args, t_all *all, char c, int i)
 {
 	if (c == 'd' || c == 'i')
 		ft_int(args, all);
@@ -47,9 +47,9 @@ static int	print_args(va_list args, t_all *all, char c)
 		ft_pointer(args, all);
 	else if (c == 'f' || c == 'F')
 		ft_double(args, all);
-	else
+	else if (c == 'c' || c == 'C')
 		ft_char(args, all, c);
-	return (0);
+	return (++i);
 }
 
 static int	ft_first(const char *form, va_list args, int fd)
@@ -65,13 +65,12 @@ static int	ft_first(const char *form, va_list args, int fd)
 		{
 			ft_clean(&all);
 			all.fd = fd;
+			i = ft_set_print(form, i, &all);
 			i = ft_save(form, i, &all, args);
 			if (i >= ft_strlen(form))
 				break ;
-			print_args(args, &all, form[i++]);
+			i = print_args(args, &all, form[i], i);
 		}
-		if (form[i] == '{')
-			i = ft_set_print(form, i, &all);
 		while (form[i] && form[i] != '%')
 		{
 			write(fd, &form[i++], 1);

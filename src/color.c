@@ -6,7 +6,7 @@
 /*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 12:54:23 by mlink             #+#    #+#             */
-/*   Updated: 2020/02/29 15:20:24 by mlink            ###   ########.fr       */
+/*   Updated: 2020/06/01 14:10:57 by mlink            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,14 +86,17 @@ int			ft_set_print(const char *form, size_t i, t_all *all)
 	size_t	k;
 	size_t	j;
 
+	i++;
 	k = i + 1;
 	j = i + 2;
-	if (form[i] == '{' && ft_is_print(form[k]) && form[j] == '}')
+	while (form[i] == '{' && ft_is_print(form[k]) && form[j] == '}')
 	{
-		i = i + 3;
+		i += 3;
 		ft_color(form[k], all);
 		ft_back_color(form[k], all);
 		ft_formtting(form[k], all);
+		k = i + 1;
+		j = i + 2;
 	}
 	return (i);
 }
