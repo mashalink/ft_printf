@@ -6,7 +6,7 @@
 /*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 16:08:52 by mlink             #+#    #+#             */
-/*   Updated: 2020/03/02 17:06:49 by mlink            ###   ########.fr       */
+/*   Updated: 2020/07/22 21:15:03 by mlink            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,17 @@ void		fd_putstr(const char *s, t_all *all)
 
 	i = 0;
 	if (s != NULL)
+	{
 		while (s[i])
-		{
-			write(all->fd, &s[i++], 1);
-			all->count++;
-		}
+			if (all->count < 1024)
+				all->buffer[all->count++] = s[i++];
+			else
+			{
+				write(all->fd, &all->buffer, all->count);
+				all->save_count += all->count;
+				all->count = 0;
+			}
+	}
 }
 
 static char	*ft_clean_str(int len, uintmax_t x)

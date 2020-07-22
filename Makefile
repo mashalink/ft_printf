@@ -6,7 +6,7 @@
 #    By: mlink <mlink@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/09 17:09:30 by mlink             #+#    #+#              #
-#    Updated: 2020/02/29 14:55:52 by mlink            ###   ########.fr        #
+#    Updated: 2020/07/22 19:58:50 by mlink            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ HEADER = ./includes
 SRC_DIR = ./src/
 SRC = ft_printf.c check.c save_param.c type_buox.c type_c.c\
 		type_s.c type_di.c cheng_mod.c type_f.c type_p.c all.c\
-		color.c
+		color.c print_buffer.c
 SRCS=$(addprefix $(SRC_DIR), $(SRC))
 
 LIB_SRC_DIR = ./libft/

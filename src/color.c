@@ -6,7 +6,7 @@
 /*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 12:54:23 by mlink             #+#    #+#             */
-/*   Updated: 2020/06/01 14:10:57 by mlink            ###   ########.fr       */
+/*   Updated: 2020/07/21 16:46:45 by mlink            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static void	ft_back_color(char c, t_all *all)
 	else if (c == 'c')
 		fd_putstr("\x1b[46m", all);
 	else if (c == 'o')
-		fd_putstr("\x1b[49m", all);
+		fd_putstr("\x1b[27m", all);
 }
 
 static void	ft_formtting(char c, t_all *all)

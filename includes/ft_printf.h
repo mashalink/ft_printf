@@ -6,7 +6,7 @@
 /*   By: mlink <mlink@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 11:07:10 by mlink             #+#    #+#             */
-/*   Updated: 2020/03/02 16:40:22 by mlink            ###   ########.fr       */
+/*   Updated: 2020/07/22 19:46:14 by mlink            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,11 @@ typedef struct	s_all
 	int			f_hash;
 	int			f_zero;
 	int			count;
+	int			save_count;
 	int			fd;
 	int			neg;
 	int			x;
+	char		buffer[1024];
 }				t_all;
 
 int				ft_printf(const char *form, ...);
@@ -101,5 +103,7 @@ char			*ft_itoa_base(uintmax_t x, int base, t_all *all);
 void			ft_cheng_mod(va_list args, t_all *all, intmax_t *x);
 char			*ft_cheng_mod_buox(va_list args, t_all *all,
 											int base, uintmax_t *x);
+
+void			print_buffer(t_all *all);
 
 #endif
